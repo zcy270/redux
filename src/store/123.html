@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+$.ajax({
+    type: "get",
+    url: "https://www.easy-mock.com/mock/5d5a3734328102077c30f6d4/",
+    success: function (response) {
+        console.log(response)
+    }
+});
+
+var foo=1;
+function bar() {
+    //javascript没有块级作用域, 在一个函数内任何地方声明的var都会被提到函数的最开头
+    //相当于这里有一个 var foo;
+    console.log(foo); //undefined, 因为函数内的var foo把外头的给覆盖了
+    if (!foo) {
+        var foo = 10; //相当于foo = 10; var foo的声明被提到最前
+    }
+    console.log(foo);
+}
+bar();
+
+</script>
+</html>

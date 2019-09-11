@@ -1,0 +1,5 @@
+export const CHANG_VALUE='changeValue'
+export const ADD_LIST='addList'
+export const CT_SHOW='ctshow'
+export const DELETE_ITEM='deleteItem'
+export const DATA_ITEM='dataItem'
