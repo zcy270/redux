@@ -20,14 +20,7 @@ class App extends Component {
      this.deleteItem=this.deleteItem.bind(this)
      store.subscribe(this.storeChange)
   }
-  componentDidMount(){
-    axios.get("https://www.easy-mock.com/mock/5d5a3734328102077c30f6d4/").then((res)=>{
-      console.log(res)
-      const data = res.data
-      const action = getListAction(data)
-      store.dispatch(action)
-    })
-  }
+ 
   render() { 
     return ( 
       <AppUi
@@ -42,6 +35,15 @@ class App extends Component {
       />
      );
   }
+  componentDidMount(){
+    axios.get("https://www.easy-mock.com/mock/5d5a3734328102077c30f6d4/").then((res)=>{
+      // console.log(res)
+      const data = res.data
+      const action = getListAction(data)
+      store.dispatch(action)
+    })
+  }
+
   changeValue(e){
     // console.log(e.target.value)
     const action=changInputAction(e.target.value)
