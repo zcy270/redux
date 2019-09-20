@@ -8,7 +8,8 @@ const defaultState ={
         345
     ],
     isShow:true,
-    placeholder:'请写东西'
+    placeholder:'请写东西',
+    value: 'coconut'
 
 }
 export default (state = defaultState,action)=>{

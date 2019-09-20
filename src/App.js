@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import "./index.css"
 import AppUi from "./AppListUI"
+import FlavorForm from "./FlavorForm"
 import store from "./store"
 import {changInputAction,addListAction,ctnToggleAction,deleteItemAction,getListAction} from "./store/actionCreators"
 import axios from "axios"
@@ -18,12 +19,15 @@ class App extends Component {
      this.ctnToggle=this.ctnToggle.bind(this)
      this.storeChange=this.storeChange.bind(this)
      this.deleteItem=this.deleteItem.bind(this)
+     this.handleChange = this.handleChange.bind(this);
+     this.handleSubmit = this.handleSubmit.bind(this);
      store.subscribe(this.storeChange)
   }
  
   render() { 
     return ( 
-      <AppUi
+     <div>
+        <AppUi
         inputValue={this.state.inputValue}
         placeholder={this.state.placeholder}
         changeValue={this.changeValue}
@@ -33,6 +37,12 @@ class App extends Component {
         ctnToggle={this.ctnToggle}
         isShow={this.state.isShow}
       />
+      <FlavorForm
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        value={this.state.value}
+      />
+     </div>
      );
   }
   componentDidMount(){
@@ -65,6 +75,15 @@ class App extends Component {
     console.log(index)
     const action=deleteItemAction(index)
     store.dispatch(action)
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+      alert('你喜欢的风味是: ' + this.state.value);
+      event.preventDefault();
   }
   storeChange(){
     this.setState(store.getState())
