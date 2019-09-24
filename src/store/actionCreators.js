@@ -1,4 +1,4 @@
-import {CHANG_VALUE,ADD_LIST,CT_SHOW,DELETE_ITEM,DATA_ITEM}  from './actiontype'
+import {CHANG_VALUE,ADD_LIST,CT_SHOW,DELETE_ITEM,DATA_ITEM,HANDDLE_CHANGVALUE}  from './actionType'
 
 
 //改变input值
@@ -20,6 +20,10 @@ export const ctnToggleAction =()=>({
 export const deleteItemAction =(index)=>({
     type:DELETE_ITEM,
     index
+})
+export const handleChangeAction =(value)=>({
+    type:HANDDLE_CHANGVALUE,
+    value
 })
 
 //获取列表

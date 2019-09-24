@@ -1,5 +1,5 @@
 
-import {CHANG_VALUE,ADD_LIST,CT_SHOW,DELETE_ITEM,DATA_ITEM} from "./actiontype"
+import {CHANG_VALUE,ADD_LIST,CT_SHOW,DELETE_ITEM,DATA_ITEM,HANDDLE_CHANGVALUE} from "./actionType"
 const defaultState ={
     inputValue:'写东西',
     list:[
@@ -10,10 +10,9 @@ const defaultState ={
     isShow:true,
     placeholder:'请写东西',
     value: 'coconut'
-
 }
 export default (state = defaultState,action)=>{
-    console.log(state,action)
+    // console.log(state,action)
     //Reducer里只能接收state,不能改变state
     if(action.type===CHANG_VALUE){
         let newState=JSON.parse(JSON.stringify(state))
@@ -39,6 +38,11 @@ export default (state = defaultState,action)=>{
     if(action.type===DATA_ITEM){
         let newState=JSON.parse(JSON.stringify(state))
         newState.list=action.data.data.list
+        return newState
+    }
+    if(action.type===HANDDLE_CHANGVALUE){
+        let newState=JSON.parse(JSON.stringify(state))
+        newState.value=action.value
         return newState
     }
     return state

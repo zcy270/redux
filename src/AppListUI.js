@@ -3,6 +3,7 @@ import 'antd/dist/antd.css'
 import {Input,Button,List} from "antd"
 
 const AppUi = (props)=>{
+    
     return ( 
         <div>
             <div style={{margin:'20px'}}>
@@ -38,6 +39,7 @@ const AppUi = (props)=>{
         </div>
      );
 }
+
 
 // class AppUi extends Component {
 //     constructor(props) {

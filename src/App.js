@@ -3,7 +3,7 @@ import "./index.css"
 import AppUi from "./AppListUI"
 import FlavorForm from "./FlavorForm"
 import store from "./store"
-import {changInputAction,addListAction,ctnToggleAction,deleteItemAction,getListAction} from "./store/actionCreators"
+import {changInputAction,addListAction,ctnToggleAction,deleteItemAction,getListAction,handleChangeAction} from "./store/actionCreators"
 import axios from "axios"
  
 
@@ -40,7 +40,7 @@ class App extends Component {
       <FlavorForm
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
-        value={this.state.value}
+        value={this.state.handleChange}
       />
      </div>
      );
@@ -78,12 +78,14 @@ class App extends Component {
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    // this.setState({value: event.target.value});
+    const action=handleChangeAction(event.target.value)
+    store.dispatch(action)
   }
 
   handleSubmit(event) {
-      alert('你喜欢的风味是: ' + this.state.value);
-      event.preventDefault();
+    alert('你喜欢的风味是: ' + this.state.value);
+    event.preventDefault();
   }
   storeChange(){
     this.setState(store.getState())

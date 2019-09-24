@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 class FlavorForm extends Component {
     
-   
-    
     render() { 
         return (
             <form onSubmit={this.props.handleSubmit}>
